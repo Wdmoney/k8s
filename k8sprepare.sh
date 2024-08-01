@@ -11,6 +11,8 @@ apt-mark hold kubelet kubeadm kubectl
 systemctl enable --now kubelet
 echo -e 'overlay' > /etc/modules-load.d/containerd.conf
 echo -e 'br_netfilter' >> /etc/modules-load.d/containerd.conf
+modprobe br_netfilter
+modprobe overlay
 echo -e 'net.bridge.bridge-nf-call-ip6tables = 1' > /etc/sysctl.d/kubernetes.conf
 echo -e 'net.bridge.bridge-nf-call-iptables = 1' >> /etc/sysctl.d/kubernetes.conf
 echo -e 'net.ipv4.ip_forward = 1' >> /etc/sysctl.d/kubernetes.conf
