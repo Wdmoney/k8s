@@ -9,9 +9,9 @@ apt-get update
 apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
 systemctl enable --now kubelet
-echo -e 'overlay\n' > /etc/modules-load.d/containerd.conf
+echo -e 'overlay' > /etc/modules-load.d/containerd.conf
 echo -e 'br_netfilter' >> /etc/modules-load.d/containerd.conf
-echo -e 'net.bridge.bridge-nf-call-ip6tables = 1\n' > /etc/sysctl.d/kubernetes.conf
+echo -e 'net.bridge.bridge-nf-call-ip6tables = 1' > /etc/sysctl.d/kubernetes.conf
 echo -e 'net.bridge.bridge-nf-call-iptables = 1' >> /etc/sysctl.d/kubernetes.conf
 echo -e 'net.ipv4.ip_forward = 1' >> /etc/sysctl.d/kubernetes.conf
 sysctl --system
